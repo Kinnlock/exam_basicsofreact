@@ -23,8 +23,8 @@ const Button = ({ name, color, handleClick }) => {
     <div>
     <label> Type de Carburant </label> <br/>
             <Button
-        name={'Diesel'}
-        color={selectedButton === 'Diesel' ? 'cyan' : 'light grey'}
+        name={'Excellent'}
+        color={selectedButton === 'Excellent' ? 'cyan' : 'light grey'}
         handleClick={handleButtonClick}
       />
       <Button
@@ -46,7 +46,17 @@ const Button = ({ name, color, handleClick }) => {
         name={'Hybride'}
         color={selectedButton === 'Hybride' ? 'cyan' : 'light grey'}
         handleClick={handleButtonClick}
-      />      
+      /> 
+      <Button
+        name={'Hybride'}
+        color={selectedButton === 'Hybride' ? 'cyan' : 'light grey'}
+        handleClick={handleButtonClick}
+      />  
+      <Button
+        name={'Hybride'}
+        color={selectedButton === 'Hybride' ? 'cyan' : 'light grey'}
+        handleClick={handleButtonClick}
+      />  
       <br/>
       <br/>
       <label></label>

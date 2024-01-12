@@ -1,3 +1,4 @@
+import Transmission from './Transmission.js';
 import ButtonGroup from './ButtonGroup.js'
 import { useState } from 'react';
 
@@ -36,7 +37,6 @@ const AddCar = () => {
             Title: '',
             Description : ''
         });
-
     };
 
     const validateForm = () => {
@@ -46,7 +46,7 @@ const AddCar = () => {
             formData.Title === '' || formData.Description === '') {
         alert('Veuillez remplir tous les champs.');
         }
-    };  
+    };
         
     return [(
         <form onSubmit={AddCar}>
@@ -109,6 +109,7 @@ const AddCar = () => {
             <br/>
             <br/>
                 <ButtonGroup/>
+                <Transmission/>
             <br/>
                 <label>Titre de l'annonce</label>
                 
