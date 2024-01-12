@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-function Etat() {
+function Origin() {
   const [selectedButton, setSelectedButton] = useState(null);
 
   const handleButtonClick = (buttonId) => {
@@ -23,25 +23,25 @@ const Button = ({ name, color, handleClick }) => {
     <div>
     <label> Type de Carburant </label> <br/>
             <Button
-        name={'Excellent'}
-        color={selectedButton === 'Excellent' ? 'cyan' : 'light grey'}
+        name={'Dédouanée'}
+        color={selectedButton === 'Dédouanée' ? 'cyan' : 'light grey'}
         handleClick={handleButtonClick}
       />
       <Button
-        name={'Bon'}
-        color={selectedButton === 'Bon' ? 'cyan' : 'light grey'}
+        name={'Non Dédouanée'}
+        color={selectedButton === 'Non Dédouanée' ? 'cyan' : 'light grey'}
         handleClick={handleButtonClick}
       />
       <Button
-        name={'Endommagé'}
-        color={selectedButton === 'Endommagé' ? 'cyan' : 'light grey'}
+        name={'WW en Algérie'}
+        color={selectedButton === 'WW en Algérie' ? 'cyan' : 'light grey'}
         handleClick={handleButtonClick}
       />
       <Button
-        name={'Pour Pièces'}
-        color={selectedButton === 'Pour Pièces' ? 'cyan' : 'light grey'}
+        name={'Importée Neuve'}
+        color={selectedButton === 'Importée Neuve' ? 'cyan' : 'light grey'}
         handleClick={handleButtonClick}
-      />
+      />      
       <br/>
       <br/>
       <label></label>
@@ -49,4 +49,4 @@ const Button = ({ name, color, handleClick }) => {
   )]
 }
 
-export default Etat;
+export default Origin;

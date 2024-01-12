@@ -1,6 +1,10 @@
+import moredetails from './MoreDetails.js';
+import Origin from './Origin.js';
+import Etat from './Etat.js';
 import Transmission from './Transmission.js';
 import ButtonGroup from './ButtonGroup.js'
 import { useState } from 'react';
+import Moredetails from './MoreDetails.js';
 
 const AddCar = () => {
 
@@ -97,6 +101,17 @@ const AddCar = () => {
                     onChange={handleFormData}
                     name='CV'
                 />      
+            <br/>
+            <br/>
+                <ButtonGroup/>
+                <Transmission/>
+                <Etat/>
+                <Origin/>
+            <br/>
+
+            <h1>Informations de l'annonce</h1>
+            <h6>Une annonce avec un prix exact et une description bien détaillé a 10 fois plus de visibilité</h6>
+
             <br></br>
                 <label>Prix</label>
             <br></br>
@@ -106,13 +121,8 @@ const AddCar = () => {
                     onChange={handleFormData}
                     name='Price'
                 /> 
-            <br/>
-            <br/>
-                <ButtonGroup/>
-                <Transmission/>
-            <br/>
-                <label>Titre de l'annonce</label>
-                
+            <br></br>
+            <label>Titre de l'annonce</label>
             <br></br>
                 <input
                     value={formData.Title}
@@ -130,6 +140,8 @@ const AddCar = () => {
                 /> 
                                     
         </div>
+        <Moredetails/>
+
             <button type="button" onClick={validateForm}>
                 Valider
             </button>
