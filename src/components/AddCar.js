@@ -1,4 +1,5 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
+
 const AddCar = () => {
 
     const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const AddCar = () => {
     ...prevState,
     [e.target.name]: e.target.value,
     }));}
-       
+    
 
     const AddCar = e => {
         e.preventDefault();
@@ -35,16 +36,33 @@ const AddCar = () => {
             Description : ''
         });
         
-        // preparing data to server
+    const Button = ({ id, color, handleClick }) => {
+                return (
+                <button
+                    style={{ backgroundColor: color }}
+                    onClick={() => handleClick(id)}
+                >
+                    Bouton {id}
+                </button>
+                );
+            };
+          
+    const [selectedButton, setSelectedButton] = useState(null);
+          
+    const handleButtonClick = (buttonId) => {
+              setSelectedButton(buttonId);
+            };
+          
+
     };
+
     const validateForm = () => {
-    // Vérifier si les champs sont vides
-        if (formData.champ1 === '' || formData.champ2 === '') {
+        if (formData.Brand === '' || formData.CarModel === ''|| 
+            formData.Year === '' || formData.Mileage === ''|| 
+            formData.CV === '' || formData.Price === ''|| 
+            formData.Title === '' || formData.Description === '') {
         alert('Veuillez remplir tous les champs.');
-        } else {
-        // Traitement du formulaire ici (par exemple, soumission du formulaire)
-        console.log('Formulaire soumis avec succès!', formData);
-        };
+        }
     };  
         
 
@@ -96,7 +114,7 @@ const AddCar = () => {
                     value={formData.CV}
                     onChange={handleFormData}
                     name='CV'
-                />       
+                />      
         </div>
 
         {/* //TYPE DE CARBURANT = PLUSIEUR BOUTON DISPONIBLE ON PEUT EN CHOISIR 1 (FAIRE DISPARAITRE LES AUTRES ? OU JUSTE STYLISER ?) */}
@@ -127,5 +145,47 @@ const AddCar = () => {
     );
 };
 
-
 export default AddCar;
+
+function ButtonGroup() {
+    const [selectedButton, setSelectedButton] = useState(null);
+  
+    const handleButtonClick = (buttonId) => {
+      setSelectedButton(buttonId);
+    };
+  
+  const Button = ({ id, color, handleClick }) => {
+    return (
+      <button
+        style={{ backgroundColor: color }}
+        onClick={() => handleClick(id)}
+      >
+        Bouton {id}
+      </button>
+    );
+  };
+
+
+  return (
+    <div>
+      <Button
+        id={1}
+        color={selectedButton === 1 ? 'green' : 'blue'}
+        handleClick={handleButtonClick}
+      />
+      <Button
+        id={2}
+        color={selectedButton === 2 ? 'green' : 'blue'}
+        handleClick={handleButtonClick}
+      />
+      <Button
+        id={3}
+        color={selectedButton === 3 ? 'green' : 'blue'}
+        handleClick={handleButtonClick}
+      />
+      {/* Ajoutez autant de boutons que nécessaire */}
+    </div>
+  );
+}
+
+export function ButtonGroup();
