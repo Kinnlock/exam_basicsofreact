@@ -1,3 +1,4 @@
+import ButtonGroup from './ButtonGroup.js'
 import { useState } from 'react';
 
 const AddCar = () => {
@@ -35,24 +36,6 @@ const AddCar = () => {
             Title: '',
             Description : ''
         });
-        
-    const Button = ({ id, color, handleClick }) => {
-                return (
-                <button
-                    style={{ backgroundColor: color }}
-                    onClick={() => handleClick(id)}
-                >
-                    Bouton {id}
-                </button>
-                );
-            };
-          
-    const [selectedButton, setSelectedButton] = useState(null);
-          
-    const handleButtonClick = (buttonId) => {
-              setSelectedButton(buttonId);
-            };
-          
 
     };
 
@@ -65,8 +48,7 @@ const AddCar = () => {
         }
     };  
         
-
-    return (
+    return [(
         <form onSubmit={AddCar}>
             <h1>Détails de l'annonce</h1>
             <h6>Ajouter plus de détails sur votre annonce pour un maximum de visibilité</h6>
@@ -115,77 +97,43 @@ const AddCar = () => {
                     onChange={handleFormData}
                     name='CV'
                 />      
+            <br></br>
+                <label>Prix</label>
+            <br></br>
+                <input
+                    type='number'
+                    value={formData.Price}
+                    onChange={handleFormData}
+                    name='Price'
+                /> 
+            <br/>
+            <br/>
+                <ButtonGroup/>
+            <br/>
+                <label>Titre de l'annonce</label>
+                
+            <br></br>
+                <input
+                    value={formData.Title}
+                    onChange={handleFormData}
+                    name='Title'
+                /> 
+            <br></br>
+                <label>Description</label>
+            <br></br>
+                <input
+                    type='textarea'
+                    value={formData.Description}
+                    onChange={handleFormData}
+                    name='Description'
+                /> 
+                                    
         </div>
-
-        {/* //TYPE DE CARBURANT = PLUSIEUR BOUTON DISPONIBLE ON PEUT EN CHOISIR 1 (FAIRE DISPARAITRE LES AUTRES ? OU JUSTE STYLISER ?) */}
-
-        {/* //BOITE DE VITESSE ON PEUT EN CHOISIR 1 (FAIRE DISPARAITRE LES AUTRES ? OU JUSTE STYLISER ?) */}
-
-        {/* //ETAT IDEM */}
-
-        {/* //ORIGINE IDEM */}
-
-        {/* //NOMBRE DE PORTES IDEM */}
-
-        {/* //PREMIERE MAIN IDEM */}
-
-        {/* //=================INFO ANNONCE====================// */}
-
-        {/* //PRIX EN SAISIE DE VALEUR (CHOISIR DEVISE AVEC CONVERSION ?) */}
-
-        {/* //TITRE DE L'ANNONCE */}
-
-        {/* //DESCRIPTION */}
-
-        {/* //PLUS DE DETAILS SELECTION MULTIPLE DE BOUTONS */}
             <button type="button" onClick={validateForm}>
                 Valider
             </button>
         </form>
-    );
+),];
 };
 
 export default AddCar;
-
-function ButtonGroup() {
-    const [selectedButton, setSelectedButton] = useState(null);
-  
-    const handleButtonClick = (buttonId) => {
-      setSelectedButton(buttonId);
-    };
-  
-  const Button = ({ id, color, handleClick }) => {
-    return (
-      <button
-        style={{ backgroundColor: color }}
-        onClick={() => handleClick(id)}
-      >
-        Bouton {id}
-      </button>
-    );
-  };
-
-
-  return (
-    <div>
-      <Button
-        id={1}
-        color={selectedButton === 1 ? 'green' : 'blue'}
-        handleClick={handleButtonClick}
-      />
-      <Button
-        id={2}
-        color={selectedButton === 2 ? 'green' : 'blue'}
-        handleClick={handleButtonClick}
-      />
-      <Button
-        id={3}
-        color={selectedButton === 3 ? 'green' : 'blue'}
-        handleClick={handleButtonClick}
-      />
-      {/* Ajoutez autant de boutons que nécessaire */}
-    </div>
-  );
-}
-
-export function ButtonGroup();
